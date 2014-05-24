@@ -1077,9 +1077,15 @@ input.move-comment-checkbox {
 }
 
 .comment-img {
-  width: 50px;
+  width: 124px;
   word-wrap: break-word;
   margin-right: 24px;
+}
+
+.comment-img img {
+  display: block;
+  width: 64px;
+  margin: 0 auto;
 }
 
 .comment-body blockquote {

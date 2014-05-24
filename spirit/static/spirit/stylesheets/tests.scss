@@ -209,9 +209,15 @@ input.move-comment-checkbox {
 
 .comment-img {
   @extend %media-img;
-  width: 50px;
+  width: 124px;
   word-wrap: break-word;
   margin-right: $base-spacing-size;
+
+  img {
+    display: block;
+    width: 64px;
+    margin: 0 auto;
+  }
 }
 
 .comment-body {
