@@ -1,4 +1,5 @@
 {% load spirit_tags i18n %}
+{% load compress %}
 <!doctype html>
 <html>
   <head>
@@ -9,20 +10,26 @@
     <meta name="description" content="{{ config.site_description }}">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
+    {% compress css %}
 	<link rel="stylesheet" href="{{ STATIC_URL }}spirit/stylesheets/vendors/font-awesome.min.css">
-    <link rel="stylesheet" href="{{ STATIC_URL }}spirit/stylesheets/styles.css">
+    <link rel="stylesheet" href="{{ STATIC_URL }}spirit/stylesheets/styles.scss" type="text/spirit-scss">
+    {% endcompress %}
 
+    {% compress js %}
     <script src="{{ STATIC_URL }}spirit/scripts/jquery.min.js"></script>
     <script src="{{ STATIC_URL }}spirit/scripts/utils.js"></script>
     <script src="{{ STATIC_URL }}spirit/scripts/dropdown.js"></script>
+    {% endcompress %}
 
     {% if user.is_authenticated %}
+        {% compress js %}
         <script src="{{ STATIC_URL }}spirit/scripts/marked/marked.min.js"></script>
         <script src="{{ STATIC_URL }}spirit/scripts/waypoints/waypoints.min.js"></script>
         <script src="{{ STATIC_URL }}spirit/scripts/storage.js"></script>
 	    <script src="{{ STATIC_URL }}spirit/scripts/editor.js"></script>
         <script src="{{ STATIC_URL }}spirit/scripts/like.js"></script>
         <script src="{{ STATIC_URL }}spirit/scripts/bookmark.js"></script>
+        {% endcompress %}
     {% endif %}
 
     {% if user.is_moderator %}

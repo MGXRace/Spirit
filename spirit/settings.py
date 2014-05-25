@@ -108,3 +108,19 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     'django.contrib.messages.context_processors.messages',
     'djconfig.context_processors.config',  # django-djconfig
 )
+
+SCSS_PATH = os.path.join(os.path.dirname(__file__),
+    'static', 'spirit', 'stylesheets')
+COMPRESS_PRECOMPILERS = (
+    #TODO: fix for windows, this works on linux only
+    (
+        'text/spirit-scss',
+        'cd {0} && sass --scss {{infile}} {{outfile}}'.format(SCSS_PATH)
+    ),
+)
+
+STATICFILES_FINDERS = (
+    'django.contrib.staticfiles.finders.FileSystemFinder',
+    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+    'compressor.finders.CompressorFinder',
+)

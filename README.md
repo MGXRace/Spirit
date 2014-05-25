@@ -33,7 +33,7 @@ Check out the [example](https://github.com/nitely/Spirit/tree/master/example) pr
 
 In short:
 
-Add `spirit`, `djconfig` and `haystack` to your *INSTALLED_APPS*
+Add `spirit`, `djconfig`, `haystack` and `compressor` to your *INSTALLED_APPS*
 
 Add `url(r'^', include('spirit.urls', namespace="spirit", app_name="spirit")),` to your *urls.py*
 
