@@ -10,6 +10,7 @@ from django.core import validators
 from django.utils.translation import ugettext_lazy as _
 from django.utils import timezone
 
+from spirit.themes import THEME_CHOICES
 from spirit.utils.timezone import TIMEZONE_CHOICES
 from spirit.utils.models import AutoSlugField
 
@@ -23,6 +24,7 @@ class AbstractForumUser(models.Model):
     timezone = models.CharField(_("time zone"), max_length=32, choices=TIMEZONE_CHOICES, default='UTC')
     is_administrator = models.BooleanField(_('administrator status'), default=False)
     is_moderator = models.BooleanField(_('moderator status'), default=False)
+    theme = models.CharField(_('theme'), max_length=32, choices=THEME_CHOICES, default='Air')
 
     topic_count = models.PositiveIntegerField(_("topic count"), default=0)
     comment_count = models.PositiveIntegerField(_("comment count"), default=0)
